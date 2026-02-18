@@ -13,7 +13,7 @@ import time
 import zlib
 
 TMP_DIR = "/tmp/ranma_nyan_cat"
-SCENE_W = 140
+SCENE_W = 100
 SCENE_H = 15
 CAT_W = 25
 CAT_H = 15
@@ -400,6 +400,13 @@ def make_source(name):
         t = threading.Thread(target=reader, daemon=True)
         t.start()
         return lambda: state["value"], 0.5
+    elif name == "demo":
+        start = time.monotonic()
+        duration = 8.0
+        def demo_reader():
+            elapsed = time.monotonic() - start
+            return min(elapsed / duration * 100.0, 100.0)
+        return demo_reader, 0.1
     else:
         raise ValueError(f"Unknown source: {name}")
 
@@ -414,7 +421,7 @@ def cleanup():
 
 def run():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--source", default="cpu", choices=["cpu", "battery", "stdin"])
+    parser.add_argument("--source", default="cpu", choices=["cpu", "battery", "stdin", "demo"])
     args = parser.parse_args()
 
     read_metric, poll_interval = make_source(args.source)

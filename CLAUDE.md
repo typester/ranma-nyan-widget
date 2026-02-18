@@ -20,7 +20,8 @@
 
 ## Plan Mode
 
-- Every plan must include "Step 0: Re-read AGENTS.md and CLAUDE.md" to ensure guidelines are fresh.
+- Every plan must include "Step 0: Re-read CLAUDE.md" to ensure guidelines are fresh.
+- Step 0 is an instruction for the plan executor, not the plan author. Do not execute it during plan creation; just include it as a step.
 
 ## Feedback Handling
 
@@ -36,4 +37,4 @@
 - Cat sprite: 25×15 pixels from nyan-mode XPM (GPL-3.0), 6 frames.
 - Rainbow: 15 bands × 1px with baked-in wave (per-frame colors from XPM column 0).
 - Temp files in `/tmp/ranma_nyan_cat/`, atomic writes via `os.replace()`.
-- Data sources: `--source cpu` (default), `--source battery`, `--source stdin`.
+- Data sources: `--source cpu` (default), `--source battery`, `--source stdin`, `--source demo`.
