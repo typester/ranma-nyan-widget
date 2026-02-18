@@ -2,7 +2,9 @@
 
 A Nyan Cat animated progress bar widget for the macOS menu bar, powered by [ranma](https://github.com/typester/ranma).
 
-![widget](widget.gif)
+<p align="center">
+  <img src="widget.gif" alt="widget">
+</p>
 
 The cat's position represents a system metric (CPU usage, battery level, or custom input), and the animation speed scales with the metric value.
 
